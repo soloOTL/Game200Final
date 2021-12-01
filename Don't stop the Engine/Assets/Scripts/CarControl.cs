@@ -1,21 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class CarControl : MonoBehaviour
 {
     public MeshRenderer[] wheelmesh;
     public WheelCollider[] wheel;
     private float maxangle;
     private float maxtoque;
-
+    //public GameObject warningtext;
     public static bool istime = false;
     public bool handbrake = false;
     public float handbrakedragfactor = 0.5f;
     public float initdragmulitpx = 0.5f;
     public float handbraketime = 0.0f;
     public float handbraketimer=1.0f;
-    
+    public AudioClip[] soundcontrol;
     public Rigidbody rb;
     public float throttle = 0.0f;
     private float steer = 0.0f;
@@ -24,13 +24,19 @@ public class CarControl : MonoBehaviour
     public const float maxturn = 15;
    public float currentvelocity;
     public float currentenginepower = 0.0f;
+    public static Quaternion carrotation;
+   
     void Start()
     {
         maxangle = 30;
         maxtoque = 200;
         rb=GetComponent<Rigidbody>();
-     
+        carrotation = transform.rotation;
         topspeed *= 0.277f;
+        this.GetComponent<AudioSource>().clip = soundcontrol[0];
+        this.GetComponent<AudioSource>().Play();
+        //warningtext.GetComponent<Text>().text = "";
+        
     }
 
     // Update is called once per frame
@@ -45,9 +51,10 @@ public class CarControl : MonoBehaviour
         {
             move();
             updateengine();
-            checkcarrotation();
+            checkspeed();
+            //checkcarrotation();
             checkhandbrake();
-            
+            rebirth();
         }
        
     }
@@ -55,6 +62,15 @@ public class CarControl : MonoBehaviour
 
     void move()
     {
+
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            this.GetComponent<AudioSource>().clip = soundcontrol[1];
+            this.GetComponent<AudioSource>().playOnAwake = false;
+            this.GetComponent<AudioSource>().loop = true;
+            this.GetComponent<AudioSource>().Play();
+
+        }
         for (int i = 0; i < 2; i++)
         {
             wheel[i].steerAngle = steer * maxangle;
@@ -80,7 +96,10 @@ public class CarControl : MonoBehaviour
                 handbrake = true;
                 handbraketime = Time.time;
 
-                Debug.Log("handbrake");
+                this.GetComponent<AudioSource>().clip = soundcontrol[2];
+                this.GetComponent<AudioSource>().Play();
+                this.GetComponent<AudioSource>().loop = false;
+
                 foreach (var o in wheel)
                 {
                     o.brakeTorque = handbrakedragfactor*rb.velocity.magnitude;
@@ -112,11 +131,45 @@ public class CarControl : MonoBehaviour
 
 
 
-    void checkcarrotation()
+    //void checkcarrotation()
+    //{
+    //    if(transform.eulerAngles.z<-90|| transform.eulerAngles.z > 90)
+    //    {
+            
+    //       // warningtext.GetComponent<Text>().text = "PRESS F TO REBIRTH";
+    //    }
+    //}
+    private void rebirth()
     {
-        if((transform.rotation.z<-90&&transform.rotation.z>-150)||(transform.rotation.z>90&&transform.rotation.z<150))
+        if(Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("Rollover");
+            transform.position = new Vector3(CheckPoints.currentcheckpoint.x,3,CheckPoints.currentcheckpoint.z);
+            transform.rotation = carrotation;
+        }
+    }
+    void checkspeed()
+    {
+        if((rb.velocity.magnitude/0.277f)>=65)
+        {
+            this.GetComponent<AudioSource>().clip = soundcontrol[3];
+            this.GetComponent<AudioSource>().playOnAwake = false;
+            this.GetComponent<AudioSource>().loop = true;
+            this.GetComponent<AudioSource>().Play();
+            
+        }
+        //else if((rb.velocity.magnitude / 0.277f) < 70&&!handbrake)
+        //{
+        //    this.GetComponent<AudioSource>().clip = soundcontrol[1];
+        //    this.GetComponent<AudioSource>().playOnAwake = false;
+        //    this.GetComponent<AudioSource>().loop = true;
+        //    this.GetComponent<AudioSource>().Play();
+        //}
+        else if((rb.velocity.magnitude / 0.277f) ==0)
+        {
+            this.GetComponent<AudioSource>().clip = soundcontrol[0];
+            this.GetComponent<AudioSource>().playOnAwake = false;
+            this.GetComponent<AudioSource>().loop = true;
+            this.GetComponent<AudioSource>().Play();
         }
     }
 }

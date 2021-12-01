@@ -17,13 +17,21 @@ public class GameManager : MonoBehaviour
     CarControl carControl;
     public int currentspeed;
     public Rigidbody rb;
+    public static bool isfinished;
+    public CheckPoints[] checkPoints;
+    public GameObject wintext;
+    public float readygotime = 2.0f;
+    public GameObject warningtext;
     void Start()
     {
         currentlife = totallife;
-        StartCoroutine(Time());
+        StartCoroutine(startTime());
         lifetext.GetComponent<Text>().text = "LIFE: " + currentlife.ToString();
-        speedtext.GetComponent<Text>().text ="SPEED: "+ currentspeed.ToString()+" :KM/H";
+        speedtext.GetComponent<Text>().text = currentspeed.ToString()+" :KM/H";
         currentspeed = (int)(rb.velocity.magnitude/0.277f);
+        isfinished = false;
+        wintext.GetComponent<Text>().text = "";
+        warningtext.GetComponent<Text>().text = "";
     }
 
     // Update is called once per frame
@@ -31,13 +39,28 @@ public class GameManager : MonoBehaviour
     {
         if (!CarControl.istime&&starttime == 0)
         {
-            readgo.GetComponent<Text>().text = "go";
-            CarControl.istime = true;
             updatespeed();
+            CarControl.istime = true;
+            readgo.GetComponent<Text>().text = "GO";
+            readygotime-=Time.deltaTime;
+
         }
         updatespeed();
+        if(isfinished)
+        {
+            checkiffinish();
+        }
+        if(readygotime<=0)
+        {
+            readgo.GetComponent<Text>().text = "";
+        }
+        else if(starttime<=0)
+        {
+            readygotime -= Time.deltaTime;
+        }
+ 
     }
-    IEnumerator Time()
+    IEnumerator startTime()
     {
         while (starttime >= 0)
         {
@@ -49,6 +72,20 @@ public class GameManager : MonoBehaviour
     void updatespeed()
     {
         currentspeed = (int)(rb.velocity.magnitude / 0.277f);
-        speedtext.GetComponent<Text>().text ="SPEED: "+ currentspeed.ToString()+" KM/H";
+        speedtext.GetComponent<Text>().text = currentspeed.ToString()+" KM/H";
     }
+     public void  checkiffinish()
+    {
+        for(int i=0;i<6;i++)
+        {
+            if(checkPoints[i].ischecked)
+            {
+                if (i == 5)
+                    wintext.GetComponent<Text>().text = "FINISHED 1ST";
+                else
+                    continue;
+            }
+        }
+    }
+  
 }
