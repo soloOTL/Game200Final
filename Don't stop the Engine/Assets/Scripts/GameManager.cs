@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public GameObject lifetext;
     public GameObject scoretext;
-    public GameObject speedtext;
+   
     CarControl carControl;
     public int currentspeed;
     public Rigidbody rb;
@@ -21,17 +21,17 @@ public class GameManager : MonoBehaviour
     public CheckPoints[] checkPoints;
     public GameObject wintext;
     public float readygotime = 2.0f;
-    public GameObject warningtext;
+    
     void Start()
     {
         currentlife = totallife;
         StartCoroutine(startTime());
         lifetext.GetComponent<Text>().text = "LIFE: " + currentlife.ToString();
-        speedtext.GetComponent<Text>().text = currentspeed.ToString()+" :KM/H";
+        
         currentspeed = (int)(rb.velocity.magnitude/0.277f);
         isfinished = false;
         wintext.GetComponent<Text>().text = "";
-        warningtext.GetComponent<Text>().text = "";
+        
     }
 
     // Update is called once per frame
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
     void updatespeed()
     {
         currentspeed = (int)(rb.velocity.magnitude / 0.277f);
-        speedtext.GetComponent<Text>().text = currentspeed.ToString()+" KM/H";
+        
     }
      public void  checkiffinish()
     {

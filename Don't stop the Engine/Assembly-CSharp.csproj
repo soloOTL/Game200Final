@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\CarControl.cs" />
     <Compile Include="Assets\Scripts\FinshLine.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Speedometer.cs" />
     <Compile Include="Assets\TurnTheGameOn\Arrow WayPointer\DemoContent\CharacterController\Scripts\CharacterControllerThirdPerson.cs" />
     <Compile Include="Assets\Scripts\CheckPoints.cs" />
     <Compile Include="Assets\TurnTheGameOn\Arrow WayPointer\DemoContent\CharacterController\Scripts\UserControlThirdPerson.cs" />
