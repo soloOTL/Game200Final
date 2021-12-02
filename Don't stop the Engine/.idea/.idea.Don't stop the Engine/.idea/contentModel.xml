@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\65118\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\65118\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_Don't stop the Engine.992357437.00" t="ExcludeRecursive" />
+    <e p="C:\Users\65118\Desktop\Game200 Final\Don't stop the Engine\Don't stop the Engine" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="CameraShakeFX" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="StressReceiver.cs" t="Include" />
+            <e p="TraumaInducer.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Car Engine Sounds - i6 German Free" t="Include">
+          <e p="Assets for Realistic Engine Sounds" t="Include">
+            <e p="ReadMe.txt" t="Include" />
+          </e>
+          <e p="Demo_Audio" t="Include">
+            <e p="ReadMe.txt" t="Include" />
+          </e>
+        </e>
+        <e p="Free Pack" t="Include">
+          <e p="Door SFX Pack" t="Include">
+            <e p="ReadMe.txt" t="Include" />
+          </e>
+          <e p="Metal Loop Pack" t="Include">
+            <e p="readme Unity.txt" t="Include" />
+          </e>
+          <e p="Rock Loops Pack" t="Include">
+            <e p="Unity Readme.txt" t="Include" />
+          </e>
+          <e p="Rock Stingers Pack" t="Include">
+            <e p="Unity Readme.txt" t="Include" />
+          </e>
+          <e p="Tropical Moments" t="Include">
+            <e p="Tropical Moments readme.txt" t="Include" />
+          </e>
+        </e>
+        <e p="JKT_ART" t="Include">
+          <e p="etc" t="Include">
+            <e p="MatCap.shader" t="Include" />
+          </e>
+        </e>
+        <e p="mountain-race-track" t="Include">
+          <e p="Standard Assets" t="Include">
+            <e p="Environment" t="Include">
+              <e p="Water (Basic)" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="WaterBasic.cs" t="Include" />
+                </e>
+                <e p="Shaders" t="Include">
+                  <e p="FXWaterBasic.shader" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="race-track-lake" t="Include">
+          <e p="readmore.txt" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Bomb.cs" t="Include" />
+          <e p="CarControl.cs" t="Include" />
+          <e p="CheckPoints.cs" t="Include" />
+          <e p="FinshLine.cs" t="Include" />
+          <e p="FollowCamera.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
+          <e p="ItemCollect.cs" t="Include" />
+          <e p="Speedometer.cs" t="Include" />
+        </e>
+        <e p="TurnTheGameOn" t="Include">
+          <e p="Arrow WayPointer" t="Include">
+            <e p="DemoContent" t="Include">
+              <e p="CharacterController" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="CharacterControllerThirdPerson.cs" t="Include" />
+                  <e p="SmoothFollow.cs" t="Include" />
+                  <e p="UserControlThirdPerson.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="Read Me.txt" t="Include" />
+            <e p="Scripts" t="Include">
+              <e p="Editor" t="Include">
+                <e p="Editor_WaypointController.cs" t="Include" />
+              </e>
+              <e p="Waypoint.cs" t="Include" />
+              <e p="WaypointController.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Don't stop the Engine.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\Bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

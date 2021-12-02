@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public static int score = 0;
     public GameObject lifetext;
     public GameObject scoretext;
+    public GameObject timetext;
     public GameObject player;
     
     public int currentspeed;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject wintext;
     public float readygotime = 2.0f;
     public GameObject winscoretext;
+    private float totaltime;
     void Start()
     {
         currentlife = totallife;
@@ -58,7 +60,12 @@ public class GameManager : MonoBehaviour
         {
             readygotime -= Time.deltaTime;
         }
- 
+
+        if (readygotime <= 0)
+        {
+            totaltime += Time.deltaTime;
+        }
+        timetext.GetComponent<Text>().text = "TIME: " + totaltime.ToString("0.00");
     }
     IEnumerator startTime()
     {
