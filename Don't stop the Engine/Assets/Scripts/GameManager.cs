@@ -8,26 +8,26 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     public float starttime=5.0f;
     public GameObject readgo;
-    public int totallife = 5;
+    public static int totallife = 3;
     private int currentlife ;
-    public int score = 0;
+    public static int score = 0;
     public GameObject lifetext;
     public GameObject scoretext;
-   
-    CarControl carControl;
+    public GameObject player;
+    
     public int currentspeed;
     public Rigidbody rb;
     public static bool isfinished;
     public CheckPoints[] checkPoints;
     public GameObject wintext;
     public float readygotime = 2.0f;
-    
+    public GameObject winscoretext;
     void Start()
     {
         currentlife = totallife;
         StartCoroutine(startTime());
         lifetext.GetComponent<Text>().text = "LIFE: " + currentlife.ToString();
-        
+        winscoretext.GetComponent<Text>().text = "";
         currentspeed = (int)(rb.velocity.magnitude/0.277f);
         isfinished = false;
         wintext.GetComponent<Text>().text = "";
@@ -81,11 +81,25 @@ public class GameManager : MonoBehaviour
             if(checkPoints[i].ischecked)
             {
                 if (i == 5)
+                {
+                    player.GetComponent<AudioSource>().Stop();
                     wintext.GetComponent<Text>().text = "FINISHED 1ST";
+                    winscoretext.GetComponent<Text>().text = score.ToString();
+                    if (!this.GetComponent<AudioSource>().isPlaying)
+                    {
+                        this.GetComponent<AudioSource>().loop = true;
+                        this.GetComponent<AudioSource>().Play();
+                    }
+                    
+                   
+                }
                 else
                     continue;
             }
         }
     }
-  
+  public void updatelife()
+    {
+        lifetext.GetComponent<Text>().text = "LIFE: " + currentlife.ToString();
+    }
 }

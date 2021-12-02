@@ -25,7 +25,7 @@ public class CarControl : MonoBehaviour
    public float currentvelocity;
     public float currentenginepower = 0.0f;
     public static Quaternion carrotation;
-   
+    public GameObject explosion;
     void Start()
     {
         maxangle = 30;
@@ -36,6 +36,7 @@ public class CarControl : MonoBehaviour
         this.GetComponent<AudioSource>().clip = soundcontrol[0];
         this.GetComponent<AudioSource>().Play();
         //warningtext.GetComponent<Text>().text = "";
+        explosion.SetActive(false);
         
     }
 
@@ -143,7 +144,7 @@ public class CarControl : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.F))
         {
-            transform.position = new Vector3(CheckPoints.currentcheckpoint.x,3,CheckPoints.currentcheckpoint.z);
+            transform.position = new Vector3(CheckPoints.currentcheckpoint.x,2,CheckPoints.currentcheckpoint.z);
             transform.rotation = carrotation;
         }
     }

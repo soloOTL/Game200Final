@@ -12,6 +12,7 @@ public class FinshLine : MonoBehaviour
     {
         isfinished = false;
         startorfinish = true;
+        this.GetComponent<AudioSource>().Stop();
     }
 
     // Update is called once per frame

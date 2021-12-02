@@ -57,22 +57,32 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\FollowCamera.cs" />
     <Compile Include="Assets\TurnTheGameOn\Arrow WayPointer\DemoContent\CharacterController\Scripts\SmoothFollow.cs" />
+    <Compile Include="Assets\CameraShakeFX\Scripts\StressReceiver.cs" />
     <Compile Include="Assets\TurnTheGameOn\Arrow WayPointer\Scripts\Waypoint.cs" />
     <Compile Include="Assets\TurnTheGameOn\Arrow WayPointer\Scripts\WaypointController.cs" />
+    <Compile Include="Assets\Scripts\Bomb.cs" />
     <Compile Include="Assets\mountain-race-track\Standard Assets\Environment\Water (Basic)\Scripts\WaterBasic.cs" />
     <Compile Include="Assets\Scripts\CarControl.cs" />
     <Compile Include="Assets\Scripts\FinshLine.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Speedometer.cs" />
+    <Compile Include="Assets\CameraShakeFX\Scripts\TraumaInducer.cs" />
     <Compile Include="Assets\TurnTheGameOn\Arrow WayPointer\DemoContent\CharacterController\Scripts\CharacterControllerThirdPerson.cs" />
     <Compile Include="Assets\Scripts\CheckPoints.cs" />
     <Compile Include="Assets\TurnTheGameOn\Arrow WayPointer\DemoContent\CharacterController\Scripts\UserControlThirdPerson.cs" />
+    <Compile Include="Assets\Scripts\ItemCollect.cs" />
   </ItemGroup>
   <ItemGroup>
+     <None Include="Assets\Free Pack\Tropical Moments\Tropical Moments readme.txt" />
+     <None Include="Assets\Free Pack\Rock Stingers Pack\Unity Readme.txt" />
+     <None Include="Assets\Free Pack\Door SFX Pack\Readme.txt" />
+     <None Include="Assets\Free Pack\Metal Loop Pack\readme Unity.txt" />
+     <None Include="Assets\Free Pack\Rock Loops Pack\Unity Readme.txt" />
      <None Include="Assets\race-track-lake\readmore.txt" />
      <None Include="Assets\Car Engine Sounds - i6 German Free\Assets for Realistic Engine Sounds\ReadMe.txt" />
      <None Include="Assets\TurnTheGameOn\Arrow WayPointer\Read Me.txt" />
      <None Include="Assets\Car Engine Sounds - i6 German Free\Demo_Audio\ReadMe.txt" />
+     <None Include="Assets\JKT_ART\etc\MatCap.shader" />
      <None Include="Assets\mountain-race-track\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.3f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
